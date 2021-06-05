@@ -1,26 +1,34 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Welcome to Your Vue.js App" />
+  <editor ref="editor" :config="config" />
+  <button @click="invokeSave">Save</button>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import { ref } from "vue";
+import Editor from "./components/Editor.vue";
 
 export default {
   name: "App",
   components: {
-    HelloWorld,
+    Editor,
+  },
+  setup() {
+    const editor = ref(null);
+
+    function invokeSave() {
+      editor.value.state.editor
+        .save()
+        .then((data) => {
+          // Do what you want with the data here
+          console.log(data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+
+    return { editor, invokeSave };
   },
 };
 </script>
-
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
