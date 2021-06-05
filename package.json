@@ -10,6 +10,7 @@
     "vue-composition-api",
     "vue3"
   ],
+  "main": "./src/plugin.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/trantoan960/vue-editor-rhp.git"
@@ -17,7 +18,7 @@
   "bugs": {
     "url": "https://github.com/trantoan960/vue-editor-rhp/issues"
   },
-  "version": "0.1.5",
+  "version": "0.1.6",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
