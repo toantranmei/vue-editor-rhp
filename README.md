@@ -38,10 +38,12 @@ yarn add vue-editor-rhp
 ### In main.js
 
 ```js
-// ...
+import { createApp } from "vue";
 import Editor from "vue-editor-rhp";
 
-Vue.use(Editor);
+const app = createApp(...);
+
+app.use(Editor);
 // ...
 ```
 
@@ -72,27 +74,7 @@ Define the initialization function to get the instance of editor.js when initial
 
 If you wish to only import Editor on a single component then you can do so by following the instructions below
 
-1. Make sure to install `@vue/composition-api`
-
-```bash
-# NPM
-npm i --save @vue/composition-api
-
-# or Yarn
-yarn add @vue/composition-api
-```
-
-2. In main.js:
-
-```js
-import Vue from "vue";
-import VueCompositionApi from "@vue/composition-api";
-
-Vue.use(VueCompositionApi);
-```
-
-3. Don't import anything from `'vue-editor-rhp'` in main.js
-4. In your component:
+1. In your component:
 
 ```js
 import { Editor } from "vue-editor-rhp";
@@ -161,15 +143,19 @@ yarn add @editorjs/header
   <div id="app">
     <Editor ref="editor" :config="config" />
 
-    <button @click="invokeSave">Save</button>
+    <button @click="onSubmitSave">Save</button>
   </div>
 </template>
 
 <script>
+import { ref } from "vue";
+
 export default {
-  methods: {
-    invokeSave() {
-      this.$refs.editor._data.state.editor
+  setup() {
+    const editor = ref(null);
+
+    function onSubmitSave() {
+      editor.value.state.editor
         .save()
         .then((data) => {
           // Do what you want with the data here
@@ -178,7 +164,9 @@ export default {
         .catch((err) => {
           console.log(err);
         });
-    },
+    }
+
+    return { onSubmitSave };
   },
 };
 </script>

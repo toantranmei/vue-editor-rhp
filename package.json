@@ -18,7 +18,7 @@
   "bugs": {
     "url": "https://github.com/trantoan960/vue-editor-rhp/issues"
   },
-  "version": "0.1.6",
+  "version": "0.1.7",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
