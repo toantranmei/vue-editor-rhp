@@ -6,7 +6,7 @@
 
 <script>
 import { ref } from "vue";
-import Editor from "./components/Editor.vue";
+import Editor from "./components";
 
 export default {
   name: "App",

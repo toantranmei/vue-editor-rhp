@@ -1,7 +1,23 @@
 {
   "name": "vue-editor-rhp",
-  "version": "0.1.0",
-  "private": true,
+  "license": "MIT",
+  "author": "Sky Albert<trantoan.fox.97@gmail.com>",
+  "keywords": [
+    "editor",
+    "editorjs",
+    "vue.js",
+    "vue-editor",
+    "vue-composition-api",
+    "vue3"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/trantoan960/vue-editor-rhp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/trantoan960/vue-editor-rhp/issues"
+  },
+  "version": "0.1.1",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
